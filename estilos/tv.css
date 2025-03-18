@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+.bandeira{
+    height: 700px;
+}
+
+.conteudo-bandeira{
+    width: 500px;
+    text-shadow: none;
+}
+
+.conteudo-bandeira h1{
+    font-size: 2.2em;
+}
+
+
+.conteudo-sobre-nos{
+    margin: 0px;
+    flex-direction: row;
+}
+
+.apresentacao-sobre-nos{
+    margin: 0px;
+    width: 55%;
+   
+}
+
+.ft-sobre-nos{
+    width: 400px;
+    height: 500px;
+    filter: drop-shadow(10px 5px 1em rgba(0, 146, 243, 0.514));
+    
+}
+
+.box-atendimento-contato{
+    flex-direction: row;
+
+  }
+  
+  .formulario{
+    width:30%;
+    
+  }
+
+  .contato-form h3{
+    text-align: left;
+
+  }
+  
+
+  .form{
+    margin: 0;
+  }
+
+  
+.mapa{
+    width: 500px;
+    height: 500px;
+  }
+  
+  .sessao-footer{
+    gap: 40px;
+    justify-content: start;
+    flex-direction: row;
+  }
+  
+  .sessao-footer > div{
+  margin-top: 25px;
+  margin-right: 60px;
+  }
+  
+  .sessao-conquistas{
+    height: 200px;
+  }
+  
+  .countainer-principal-counter{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .links-uteis > li{
+    font-size: 1.4em;
+    margin: 20px 0px;
+  }

@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.conteudo-sobre-nos{
+    margin: 0px;
+    flex-direction: row;
+}
+
+.apresentacao-sobre-nos{
+    margin: 0px;
+    width: 55%;
+   
+}
+
+.ft-sobre-nos{
+    width: 400px;
+    height: 500px;
+    filter: drop-shadow(10px 5px 1em rgba(0, 146, 243, 0.514));
+    
+}

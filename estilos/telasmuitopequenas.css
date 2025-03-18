@@ -1,0 +1,31 @@
+@charset "UTF-8";
+.logo img{
+    width: 130px;
+}
+.bandeira{
+    height: 600px;
+}
+
+
+.conteudo-bandeira{
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.836);
+}
+.conteudo-bandeira h1{
+    font-size: 1.3em;
+}
+
+.titulo h1{ 
+    font-size: 1.2em;
+}
+
+.linha{
+    width: 40px;
+}
+
+
+.ft-sobre-nos{
+    width: 280px;
+    height: 350px;
+
+       
+}

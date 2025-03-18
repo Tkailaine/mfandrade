@@ -1,0 +1,759 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root{
+   --fonte-destaque: Fraunces, sans-serif;
+   --fonte-padrao: Lato, sans-serif;
+   --cor1:#3b6280;
+   --cor2:#031624;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+ 
+    scroll-behavior: smooth;
+  }
+
+  a{
+    text-decoration: none;
+   
+  }
+
+  h1{
+    font-family: var(--fonte-destaque);
+
+  }
+  body{
+    font-family: var(--fonte-padrao);
+  }
+
+
+header.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-image: linear-gradient(45deg,#031624 , #3b6280, #031624 );
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .logo img{
+    width: 200px;
+  }
+  nav.menu .close-btn {
+    display: block;
+  }
+  nav.menu {
+    display: flex;
+  }
+  
+  nav.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+  }
+  
+  nav.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  nav.menu ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: #3b85bd;
+    transition: width 0.3s ease;
+  }
+  
+  nav.menu ul li a:hover::after {
+    width: 100%;
+  }
+  
+  nav.menu ul li a:hover {
+    color: #2f8ed6;
+  }
+  
+  /* Botão de menu (Hamburger) */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+  }
+  
+  .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: all 0.3s ease;
+  }
+  
+  /* Efeitos no botão */
+  .menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  /* Botão de fechar no menu */
+  nav.menu .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+    z-index: 1001;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+  
+    nav.menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      height: 100vh;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.5s ease;
+    }
+  
+    nav.menu.active {
+      left: 0;
+    }
+  
+    nav.menu ul {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    nav.menu ul li {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 0.5s ease forwards;
+    }
+  
+    nav.menu ul li:nth-child(1) {
+      animation-delay: 0.3s;
+    }
+  
+    nav.menu ul li:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+  
+    nav.menu ul li:nth-child(3) {
+      animation-delay: 0.7s;
+    }
+  
+    nav.menu ul li:nth-child(4) {
+      animation-delay: 0.9s;
+    }
+  
+    /* Mostrar o botão de fechar no menu ativo */
+    nav.menu .close-btn {
+      display: block;
+    }
+  }
+  
+  /* Animação de fade-in */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .btn-whatsapp{
+    border: 2px solid #2f8ed6;
+    background-color: transparent;
+    color: white;
+    border-radius: 10px;
+    width: 100px;
+    height: 35px;
+    font-family: var(--fonte-destaque);
+    cursor: pointer;
+    display: block;
+    margin: 0px;
+
+  }
+
+  .btn-whatsapp:hover{
+    background-color: #2f8ed6;
+    transition-duration: 1s;
+  }
+  
+
+
+/* Estilos do pop-up */
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  z-index: 1000; /* Garante que o pop-up fique por cima de outros conteúdos */
+}
+
+.popup-content {
+  background-color: #ffffff;
+  border: 2px solid #2f8ed6;
+  border-radius: 5px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.popup-logo {
+  width: 100px; /* Ajuste o tamanho da logo conforme necessário */
+  margin-bottom: 15px; /* Espaçamento entre a logo e o alerta */
+}
+
+.close-btn {
+  font-size: 20px;
+  cursor: pointer;
+  color: #721c24;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .popup-content {
+    width: 90%;
+  }
+}
+
+  
+  .social-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between buttons */
+    z-index: 1000;
+}
+
+/* Individual Button Styling */
+.social-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-button img {
+    width: 30px;
+    height: 30px;
+}
+
+/* WhatsApp Button */
+.whatsap-button {
+    background-color: #25d366;
+}
+
+.whatsapp-button:hover {
+    background-color: #1ebe57;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.bandeira{
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background-image:url(../imagens/bandeira.jpg) ;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top:55px;
+    color: white;
+   
+}
+
+.conteudo-bandeira{
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-20%,-50%);
+    width: 320px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.623);
+}
+
+.conteudo-bandeira h1{
+    font-weight: 400;
+    font-size: 2em;
+}
+
+.conteudo-bandeira p{
+   font-style: italic;
+   line-height: 2em;
+}
+
+.conteudo-bandeira button{
+    border: none;
+    padding: 20px;
+    background-color: var(--cor1);
+    cursor: pointer;
+    color: white;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.conteudo-bandeira button:hover{
+    box-shadow: 2px 3px 5px  white;
+    transition-duration: 0.5s;
+    
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: var(--cor1);
+    margin-top: 50px;
+   
+}
+
+.linha{
+    display: block;
+    background-color: var(--cor1);
+    height: 2px;
+    width: 50px;
+}
+
+.titulo h1{
+    font-weight: 400;
+}
+
+
+.conteudo-sobre-nos{
+    margin: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.apresentacao-sobre-nos{
+    margin: auto;
+    width: 92%;
+   
+}
+
+.apresentacao-sobre-nos h1{
+    color: #3b6280
+}
+
+.apresentacao-sobre-nos h2{
+    font-family: var(--fonte-destaque);
+    font-size: 1.3em;
+    color: #3b6280
+}
+
+.apresentacao-sobre-nos h1, .apresentacao-sobre-nos  p, .apresentacao-sobre-nos  ul, .apresentacao-sobre-nos h2{
+
+    list-style: inside;
+    line-height: 2em;
+}
+
+.apresentacao-sobre-nos button{
+    border: none;
+    padding: 20px 40px;
+    background-color: var(--cor1);
+    cursor: pointer;
+    color: white;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.apresentacao-sobre-nos button:hover{
+    background-color: var(--cor2);
+    transition-duration: 1s;
+}
+
+.ft-sobre-nos{
+    width: 350px;
+    height: 450px;
+    background-image: url(../imagens/advogado.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+       
+}
+
+.atuacoes{
+    margin: 50px 0px;
+}
+
+
+.container {
+  max-width: 1500px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+.container .button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: var(--cor1);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.container .button:hover {
+    background-color: var(--cor2);
+}
+
+.card1{
+    background-image: url(../imagens/1.jpg);
+    background-position: center;
+
+}
+
+.card2{
+    background-image: url(../imagens/2.jpg);
+    background-position: center;
+}
+
+.card3{
+    background-image: url(../imagens/3.jpg);
+    background-position: top;
+}
+
+.card4{
+    background-image: url(../imagens/4.jpg);
+    background-position: top;
+}
+
+
+.sessao-blog {
+  background: linear-gradient(45deg, #031624, #3b6280, #031624);
+  width: 100%;
+  padding: 50px 0;
+  overflow: hidden;
+}
+
+
+.sessao-blog h1{
+  text-align: center;
+  color: white;
+  font-weight: 300;
+  margin: 20px;
+}
+
+.blog {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px; /* Evita invasão de outras seções */
+  margin: auto;
+  clear: both;
+}
+
+.card-blog {
+  width: 300px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.card-blog:hover {
+  transform: scale(1.05);
+}
+.card-blog img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.news-content {
+  padding: 15px;
+}
+.news-meta {
+  font-size: 12px;
+  color: #777;
+}
+.news-title {
+  font-size: 18px;
+  margin: 10px 0;
+}
+.news-summary {
+  font-size: 14px;
+  color: #555;
+}
+.news-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--cor1);
+  text-decoration: none;
+  font-weight: bold;
+}
+.news-link:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .blog {
+      flex-direction: column;
+      align-items: center;
+  }
+}
+
+
+.atendimento-contato{
+  width: 100%;
+  padding: 50px 0px;
+}
+
+.box-atendimento-contato{
+  display: flex;
+  flex-direction: column-reverse;
+  
+  justify-content: center;
+  gap: 50px;
+  margin-top: 50px;
+  align-items: center;
+}
+
+.formulario{
+  width:80%;
+ 
+  
+}
+
+.contato-form h3{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form {
+  margin: auto;
+  width: 85%;
+  font-size: 1.125rem;
+
+}
+
+.form label,
+.form input,
+.form textarea,
+.form button {
+  display: block;
+  width: 100%;
+}
+
+.form label {
+  color: black;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.form input,
+.form textarea {
+  font: inherit;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--cor1);
+  border-radius: 8px;
+  transition: border-color, box-shadow 0.2s;
+}
+
+.form textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.form input:hover,
+.form input:focus,
+.form textarea:hover,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--cor1);
+  box-shadow: 0 0 0 2px var(--cor1);
+}
+
+.form button {
+  display: block;
+  padding: 1rem;
+  background: var(--cor1);
+  color: #fff;
+  font: inherit;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.form button:hover,
+.form button:focus {
+  outline: none;
+  background: var(--cor2);
+}
+
+
+.mapa{
+  width: 350px;
+  height: 350px;
+  background-image: url(../imagens/mapa.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+footer{
+  background-color: rgb(246, 246, 247);
+  padding: 40px 0px;
+  font-family: var(--fonte-padrao);
+}
+
+.sessao-footer{
+  display: flex;
+  margin-left: 5%;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 90%;
+    
+}
+
+.sessao-footer div{
+  margin-bottom: 15px;
+}
+
+.sessao-footer p{
+  margin: 20px 0px;
+}
+
+footer ul, a{
+  list-style-type: none;
+  text-decoration: none;
+  color: var(--cor2);
+  font-weight: 400;
+  
+  
+}
+.endereco{
+  font-size: 1em;
+  margin-left: 20px;
+  
+
+}
+
+h3{
+  color: var(--cor1);
+  font-family: var(--fonte-destaque);
+}
+
+.links-uteis li{margin: 10px 0px;}
+
+.links-uteis > li > a:hover{
+  color: var(--cor1);
+}
+
+.nav-footer{
+  margin: 15px 0px;
+}
+
+.divisoria{
+  display: block;
+  width: 90%;
+  height: 1px;
+  background-color: #000000;
+  margin: 10px auto;
+}

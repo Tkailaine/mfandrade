@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.bandeira{
+    height: 700px;
+}
+
+.conteudo-bandeira{
+    width: 420px;
+
+}
+
+.conteudo-bandeira h1{
+    font-size: 2.2em;
+}
+
+  
+  .formulario{
+    width:55%;
+    
+  }
+
+
+  .mapa{
+    width: 450px;
+    height: 450px;
+  }
+  
+
+  
+  .links-uteis > li{
+    font-size: 1.2em;
+    margin: 20px 0px;
+  }
+  

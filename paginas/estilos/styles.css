@@ -1,0 +1,300 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root{
+   --fonte-destaque: Fraunces, sans-serif;
+   --fonte-padrao: Lato, sans-serif;
+   --cor1:#3b6280;
+   --cor2:#031624;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+ 
+    scroll-behavior: smooth;
+  }
+
+  a{
+    text-decoration: none;
+   
+  }
+
+  h1{
+    font-family: var(--fonte-destaque);
+
+  }
+  body{
+    font-family: var(--fonte-padrao);
+  }
+
+
+header.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-image: linear-gradient(45deg,#031624 , #3b6280, #031624 );
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .logo img{
+    width: 200px;
+  }
+  nav.menu .close-btn {
+    display: block;
+  }
+  nav.menu {
+    display: flex;
+  }
+  
+  nav.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+  }
+  
+  nav.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  nav.menu ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: #3b85bd;
+    transition: width 0.3s ease;
+  }
+  
+  nav.menu ul li a:hover::after {
+    width: 100%;
+  }
+  
+  nav.menu ul li a:hover {
+    color: #2f8ed6;
+  }
+  
+  /* Botão de menu (Hamburger) */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+  }
+  
+  .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: all 0.3s ease;
+  }
+  
+  /* Efeitos no botão */
+  .menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  /* Botão de fechar no menu */
+  nav.menu .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+    z-index: 1001;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+  
+    nav.menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      height: 100vh;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.5s ease;
+    }
+  
+    nav.menu.active {
+      left: 0;
+    }
+  
+    nav.menu ul {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    nav.menu ul li {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 0.5s ease forwards;
+    }
+  
+    nav.menu ul li:nth-child(1) {
+      animation-delay: 0.3s;
+    }
+  
+    nav.menu ul li:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+  
+    nav.menu ul li:nth-child(3) {
+      animation-delay: 0.7s;
+    }
+  
+    nav.menu ul li:nth-child(4) {
+      animation-delay: 0.9s;
+    }
+  
+    /* Mostrar o botão de fechar no menu ativo */
+    nav.menu .close-btn {
+      display: block;
+    }
+  }
+  
+  /* Animação de fade-in */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .btn-whatsapp{
+    border: 2px solid #2f8ed6;
+    background-color: transparent;
+    color: white;
+    border-radius: 10px;
+    width: 100px;
+    height: 35px;
+    font-family: var(--fonte-destaque);
+    cursor: pointer;
+    display: block;
+    margin: 0px;
+
+  }
+
+  .btn-whatsapp:hover{
+    background-color: #2f8ed6;
+    transition-duration: 1s;
+  }
+  
+
+  .sobre-nos{
+    margin-top: 150px;
+  }
+.conteudo-sobre-nos{
+    margin: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.apresentacao-sobre-nos{
+    margin: auto;
+    width: 92%;
+   
+}
+
+.apresentacao-sobre-nos h1{
+    color: #3b6280
+}
+
+.apresentacao-sobre-nos h2{
+    font-family: var(--fonte-destaque);
+    font-size: 1.3em;
+    color: #3b6280
+}
+
+.apresentacao-sobre-nos h1, .apresentacao-sobre-nos  p, .apresentacao-sobre-nos  ul, .apresentacao-sobre-nos h2{
+
+    list-style: inside;
+    line-height: 2em;
+}
+
+.apresentacao-sobre-nos button{
+    border: none;
+    padding: 20px 40px;
+    background-color: var(--cor1);
+    cursor: pointer;
+    color: white;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.apresentacao-sobre-nos button:hover{
+    background-color: var(--cor2);
+    transition-duration: 1s;
+}
+
+.ft-sobre-nos{
+    width: 350px;
+    height: 450px;
+    background-image: url(../../imagens/advogado.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+       
+}
+
+h2{
+  font-family: var(--fonte-destaque);
+  color: #3b6280;
+}
+
+li{
+  line-height: 2em;
+}
+
+
+.espacamento{
+  margin: 30px auto;
+}
